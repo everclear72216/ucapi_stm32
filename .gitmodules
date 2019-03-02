@@ -1,0 +1,3 @@
+[submodule "ucapi"]
+	path = ucapi
+	url = git@github.com:everclear72216/ucapi.git
