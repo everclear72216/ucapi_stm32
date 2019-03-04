@@ -1,0 +1,6 @@
+#ifndef UCAPI_STM32_RCC_H_INCLUDED
+#define UCAPI_STM32_RCC_H_INCLUDED
+
+#include "rcc_stm32f101xx.h"
+
+#endif /* UCAPI_STM32_RCC_H_INCLUDED */
