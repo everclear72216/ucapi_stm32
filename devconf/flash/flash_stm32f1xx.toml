@@ -1,0 +1,13 @@
+[def.flash.base]
+default_value = 0x40022000
+allowed_values = [
+    [ 0x40022000 ],
+    [ 0x40022000 ]
+]
+
+[def.flash.latency]
+default_value = 0
+allowed_values = [
+    [ 0, 1, 2 ],
+    [ 0, 1, 2 ]
+]

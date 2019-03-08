@@ -1,9 +1,12 @@
+#ifndef UCAPI_STM32_RCC_STM32F101XX_H_INCLUDED
+#define UCAPI_STM32_RCC_STM32F101XX_H_INCLUDED
+
 struct stm32_rcc_registers
 {
     union {
         unsigned int reg;
         struct {
-            unsigned int hison:1;
+            unsigned int hsion:1;
             unsigned int hsirdy:1;
             unsigned int __reserved0:1;
             unsigned int hsitrim:5;
@@ -238,4 +241,6 @@ struct stm32_rcc_registers
     } csr;
 };
 
-extern volatile struct stm32_rcc_registers* const rcc;
+#define rcc ((volatile struct stm32_rcc_registers*)RCC_BASE)
+
+#endif /* UCAPI_STM32_RCC_STM32F101XX_H_INCLUDED */
