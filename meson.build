@@ -1,4 +1,3 @@
-subdir('devconf')
 subdir('include')
 subdir('source')
 
