@@ -1,0 +1,12 @@
+#include <scb.toml>
+#include <stir.toml>
+#inlcude <ictr.toml>
+#include <nvic.toml>
+#include <debug.toml>
+#include <systick.toml>
+
+#include "clock/clock.toml"
+#include "flash/flash.toml"
+
+[scb.priority_bits]
+value = 4
