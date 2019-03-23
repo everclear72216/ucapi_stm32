@@ -1,10 +1,9 @@
 #include "devconf.h"
 
-#include "clock.h"
+#include "flash.h"
+#include "registers/flash.h"
 
-#include "flash/flash.h"
-
-void flash_sysclock_change(void)
+extern void stm32_flash_set_latency(void)
 {
     flash->flash_acr.latency = FLASH_LATENCY;
 }

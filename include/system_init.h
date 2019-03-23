@@ -1,0 +1,6 @@
+#ifndef UCAPI_STM32_SYSTEM_INIT_H_INCLUDED
+#define UCAPI_STM32_SYSTEM_INIT_H_INCLUDED
+
+extern void stm32_system_init(void);
+
+#endif /* UCAPI_STM32_SYSTEM_INIT_H_INCLUDED */

@@ -1,10 +1,8 @@
-#include <ucapi/clock.h>
-
 #include "devconf.h"
 
 #include "clock.h"
 
-#include "rcc/rcc.h"
+#include "registers/rcc.h"
 
 static void sysclock_reset(void)
 {
@@ -50,13 +48,13 @@ static void sysclock_init(void)
     while(!rcc->cr.pllrdy) {}
 #endif /* USING_PLL */
 
-    flash_sysclock_change();
+    stm32_pre_sysclock_change();
 
     rcc->cfgr.sw = CLOCK_SOURCE;
     while(rcc->cfgr.sws != CLOCK_SOURCE) {}
 }
 
-extern void ucapi_clock_init(void)
+extern void stm32_clock_init(void)
 {
     sysclock_reset();
     sysclock_init();
