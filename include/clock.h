@@ -23,13 +23,14 @@
 #endif /* USING_PLL */
 
 /**
- * @brief      This function shall be called during clock initialization before
- *             the new clock settings take effect. The new expected clock rate
- *             is passed as parameter so clock rate dependent settings can be
- *             updated.
- *
- * @param[in]  clockrate  The new clockrate
+ * @brief      Initializes the system clocks.
  */
-void flash_sysclock_change();
+extern void stm32_clock_init(void);
+
+/**
+ * @brief      This function shall be called during clock initialization before
+ *             the new clock settings take effect.
+ */
+extern void stm32_pre_sysclock_change(void);
 
 #endif /* UCAPI_STM32_CLOCK_H_INCLUDED */
