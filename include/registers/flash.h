@@ -65,6 +65,6 @@ struct stm32_flash_registers
     unsigned int flash_wpr;
 };
 
-#define flash ((volatile struct stm32_flash_registers*)FLASH_BASE)
+#define flash ((volatile struct stm32_flash_registers*)DC_STM32F1XX_BASES_FLASH)
 
 #endif /* UCAPI_STM32_FLASH_STM32F1XX_H_INCLUDED */

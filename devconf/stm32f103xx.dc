@@ -1,0 +1,143 @@
+#include <cortex_m.dc>
+
+cortex_m::priority_config.group = 4;
+
+namespace stm32f1xx {
+    struct RccConfigS {
+        int clocksource {
+            allow { [0 .. 2] };
+            const {
+                hsi = 0,
+                hse = 1,
+                pll = 2
+            };
+            default = hsi;
+        };
+
+        float usbprescale {
+            allow { 1.0, 1.5 };
+            map {
+                1.5 = 0,
+                1.0 = 1
+            };
+            default = 1.5;
+        };
+
+        int adcprescale {
+            allow { 2, 4, 6, 8 };
+            map {
+                2 = 0,
+                4 = 1,
+                6 = 2,
+                8 = 3
+            };
+            default = 2;
+        };
+
+        int pllsource {
+            allow { 0, 1 };
+            const {
+                hsi_halved = 0,
+                hse = 1
+            };
+            default = hsi_halved;
+        };
+
+        int pllentrydivider {
+            allow { 1, 2 };
+            map {
+                1 = 0,
+                2 = 1
+            };
+            default = 1;
+        };
+
+        int apb1prescale {
+            allow { 1, 2, 4, 8, 16 };
+            map {
+                1 = 0,
+                2 = 4,
+                4 = 5,
+                8 = 6,
+                16 = 7
+            };
+            default = 1;
+        };
+
+        int apb2prescale {
+            allow { 1, 2, 4, 8, 16 };
+            map {
+                1 = 0,
+                2 = 4,
+                4 = 5,
+                8 = 6,
+                16 = 7
+            };
+            default = 1;
+        };
+
+        int ahbprescale {
+            allow { 1, 2, 4, 8, 16, 64, 128, 256, 512 };
+            map {
+                1 = 0,
+                2 = 8,
+                4 = 9,
+                8 = 10,
+                16 = 11,
+                64 = 12,
+                128 = 13,
+                256 = 14,
+                512 = 15
+            };
+            default = 1;
+        };
+
+        int clockoutput {
+            allow { 0, 4, 5, 6, 7 };
+            const {
+                none = 0,
+                sysclock = 4,
+                hsi = 5,
+                hse = 6,
+                pll_halved = 7
+            };
+            default = none;
+        };
+
+        int pllmultiplier {
+            allow { [2 .. 16] };
+            map {
+                2 = 0,
+                3 = 1,
+                4 = 2,
+                5 = 3,
+                6 = 4,
+                7 = 5,
+                8 = 6,
+                9 = 7,
+                10 = 8,
+                11 = 9,
+                12 = 10,
+                13 = 11,
+                14 = 12,
+                15 = 13,
+                16 = 14
+            };
+            default = 2;
+        };
+    };
+
+    struct RccConfigS rcc_config;
+
+    namespace flash {
+        int latency {
+            default = 0;
+            allow { [0 .. 2] };
+        };
+    }
+
+    namespace bases {
+        const int rcc { default = 0x40021000; };
+        const int flash { default = 0x40022000; };
+    }
+}

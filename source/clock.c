@@ -27,16 +27,16 @@ static void sysclock_reset(void)
 static void sysclock_init(void)
 {
     /* configure the phase-locked loop */
-    rcc->cfgr.pllsrc = CLOCK_PLL_SOURCE;
-    rcc->cfgr.pllmul = CLOCK_PLL_MULTIPLIER;
-    rcc->cfgr.pllxtpre = CLOCK_PLL_ENTRY_DIVIDER;
+    rcc->cfgr.pllsrc = DC_STM32F1XX_RCC_CONFIG_PLLSOURCE;
+    rcc->cfgr.pllmul = DC_STM32F1XX_RCC_CONFIG_PLLMULTIPLIER;
+    rcc->cfgr.pllxtpre = DC_STM32F1XX_RCC_CONFIG_PLLENTRYDIVIDER;
 
     /* configure bus clocks */
-    rcc->cfgr.hpre = CLOCK_AHB_PRESCALE;
-    rcc->cfgr.ppre1 = CLOCK_APB1_PRESCALE;
-    rcc->cfgr.ppre2 = CLOCK_APB2_PRESCALE;
-    rcc->cfgr.usbpre = CLOCK_USB_PRESCALE;
-    rcc->cfgr.adcpre = CLOCK_ADC_PRESCALE;
+    rcc->cfgr.hpre = DC_STM32F1XX_RCC_CONFIG_AHBPRESCALE;
+    rcc->cfgr.ppre1 = DC_STM32F1XX_RCC_CONFIG_APB1PRESCALE;
+    rcc->cfgr.ppre2 = DC_STM32F1XX_RCC_CONFIG_APB2PRESCALE;
+    rcc->cfgr.usbpre = DC_STM32F1XX_RCC_CONFIG_USBPRESCALE;
+    rcc->cfgr.adcpre = DC_STM32F1XX_RCC_CONFIG_ADCPRESCALE;
 
 #if USING_HSE
     rcc->cr.hseon = 1;
@@ -50,8 +50,8 @@ static void sysclock_init(void)
 
     stm32_pre_sysclock_change();
 
-    rcc->cfgr.sw = CLOCK_SOURCE;
-    while(rcc->cfgr.sws != CLOCK_SOURCE) {}
+    rcc->cfgr.sw = DC_STM32F1XX_RCC_CONFIG_CLOCKSOURCE;
+    while(rcc->cfgr.sws != DC_STM32F1XX_RCC_CONFIG_CLOCKSOURCE) {}
 }
 
 extern void stm32_clock_init(void)

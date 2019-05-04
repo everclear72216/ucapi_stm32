@@ -241,6 +241,6 @@ struct stm32_rcc_registers
     } csr;
 };
 
-#define rcc ((volatile struct stm32_rcc_registers*)RCC_BASE)
+#define rcc ((volatile struct stm32_rcc_registers*)DC_STM32F1XX_BASES_RCC)
 
 #endif /* UCAPI_STM32_RCC_STM32F101XX_H_INCLUDED */
